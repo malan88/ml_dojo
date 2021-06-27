@@ -1,0 +1,111 @@
+\input{boilerplate}
+
+\title{Notes to Google's Machine Learning Crash Course}
+\author{Michael Sendker}
+\date{June 27, 2021}
+
+\begin{document}
+\begin{markdown}
+\maketitle
+
+# Definitions
+
+\begin{definition}[label]
+    A label is Y
+\end{definition}
+
+\begin{definition}[feature]
+    The feature is X
+\end{definition}
+
+\begin{definition}[inference]
+    running trained model on unlabeled data
+\end{definition}
+
+\begin{definition}[regression]
+    predicting continuous values (e.g., median house values)
+\end{definition}
+
+\begin{definition}[classification]
+    predicting discrete values (e.g., hot dog, not a hot dog) also includes
+    multi-value classification (e.g., dog, cat, or hamster)
+\end{definition}
+
+\begin{definition}[hyperparameters]
+    the configuration settings used to tune how the model is trained
+\end{definition}
+
+\begin{definition}[empirical risk minimization]
+    In supervised learning, a machine learning algorithm builds a model by
+    examining many examples and attempting to find a model that minimizes loss;
+    this process is called **empirical risk minimization**.
+\end{definition}
+
+# Conceptual understanding
+
+Tom helped me understand: all ML is is finding a plane in n-dimensional space
+that segregates distinct Ys. The different methods, like Forests, Trees, etc.,
+are just different methods of generating functions to distinguish those Ys from
+their Xs.
+
+# Reducing Loss
+
+\begin{equation}
+    L_2Loss = \sum{(x,y) \in D} (y - prediction(x))^2
+\end{equation}
+
+Sometimes useful to average over all examples so divide by $\|D\|$
+
+We use the square of the difference to get a nice concave graph that allows easy
+stepping to reduce the loss.
+
+
+The Derivative of (y-y')² with respect to the weights and biases tells us how
+loss changes for a given example.
+
+Repeatedly take small steps in the direction that minimizes loss. These are
+called (negative) Gradient Steps. This strategy is called Gradient Descent
+
+\begin{definition}[Gradient Descent]
+    The strategy whereby one takes repeated small steps in the direction that
+    minimizes loss.
+\end{defintion}\\\\
+
+If your batch is large, testing a lot of steps is extremely expensive, you could
+test with one example at a time, or do batches of 10-1000 and average over time.
+One example at a time is called **Stocahastic Gradient Descent** and small
+batches is **Mini-Batch Gradient Descent**.
+
+I really want to understand the mathy stuff because it's super cool and hard and
+I believe I can do it, so, infobox from Google:
+
+# Partial Derivatives
+
+A multivariable function is a function with more than one argument, such as:
+
+\begin{equation}
+    f(x,y) = e^2y \sin{x}
+\end{equation*}
+
+The partial derivative of $f$ with respect to $x$, denoted as
+
+\begin{equation}
+    \frac{\partial f}{\partial x}
+\end{equation*}
+
+is the derivative of $f$ as a function of $x$ considered alone. To find
+$\frac{\partial f}{\partial x}$ hold $y$ constant and take the derivative of $f$
+with respect to $x$.
+
+That seems easy enough. I'm copying a lot of this verbatim.
+
+In general, thinking of $y$ as fixed, the partial derivative of $f$ with respect
+to $x$ is calculated as follows:
+
+\begin{equation}
+    \frac{\partial f}{\partial x}(x,y) = e^2y\cos{x}
+\end{equation*}
+
+\end{markdown}
+
+\end{document}
