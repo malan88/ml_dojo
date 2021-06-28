@@ -6,6 +6,7 @@
 
 \begin{document}
 \begin{markdown}
+
 \maketitle
 
 # Definitions
@@ -69,7 +70,7 @@ called (negative) Gradient Steps. This strategy is called Gradient Descent
 \begin{definition}[Gradient Descent]
     The strategy whereby one takes repeated small steps in the direction that
     minimizes loss.
-\end{defintion}\\\\
+\end{definition}
 
 If your batch is large, testing a lot of steps is extremely expensive, you could
 test with one example at a time, or do batches of 10-1000 and average over time.
@@ -174,6 +175,27 @@ use as a step?
 I guess that's the rub. Or is this something I would just know intuitively from
 linear algebra? You know a point, not actually a direction, so it's 50/50 which
 way to go on your next iteration.
+
+"The ideal learning rate in one-dimension is $\frac{1}{f(x)''}$.
+
+The ideal learing rate for 2 or more dimensions is is the inverse of the Hessian
+(matrix of second partial derivatives)."
+
+What is a Hessian you ask?
+
+\begin{definition}
+    In mathematics, the Hessian matrix or Hessian is a square matrix of
+    second-order partial derivatives of a scalar-valued function, or scalar
+    field. It describes the local curvature of a function of many variables. The
+    Hessian matrix was developed in the 19th century by the German mathematician
+    Ludwig Otto Hesse and later named after him. Hesse originally used the term
+    "functional determinants".
+\end{definition}
+
+Okay, so that's just a matrix of second-order partial derivatives of a
+scalar-valued function or scalar field.
+
+I actually get what that is, sort of.
 
 \end{markdown}
 
