@@ -79,32 +79,101 @@ batches is **Mini-Batch Gradient Descent**.
 I really want to understand the mathy stuff because it's super cool and hard and
 I believe I can do it, so, infobox from Google:
 
-# Partial Derivatives
+## Partial Derivatives
 
 A multivariable function is a function with more than one argument, such as:
 
 \begin{equation}
-    f(x,y) = e^2y \sin{x}
-\end{equation*}
+    f(x,y) = e^{2y}\sin{x}
+\end{equation}
 
 The partial derivative of $f$ with respect to $x$, denoted as
 
 \begin{equation}
     \frac{\partial f}{\partial x}
-\end{equation*}
+\end{equation}
 
 is the derivative of $f$ as a function of $x$ considered alone. To find
 $\frac{\partial f}{\partial x}$ hold $y$ constant and take the derivative of $f$
 with respect to $x$.
 
-That seems easy enough. I'm copying a lot of this verbatim.
+That seems easy enough. (I'm copying a lot of this verbatim.)
 
 In general, thinking of $y$ as fixed, the partial derivative of $f$ with respect
 to $x$ is calculated as follows:
 
 \begin{equation}
-    \frac{\partial f}{\partial x}(x,y) = e^2y\cos{x}
-\end{equation*}
+    \frac{\partial f}{\partial x}(x,y) = e^{2y}\cos{x}
+\end{equation}
+
+and the reverse, $f$ with respect to $y$ holding $x$ fixed:
+
+\begin{equation}
+    \frac{\partial f}{\partial y}(x,y) = 2e^{2y}\sin{x}
+\end{equation}
+
+It does seem obvious ("intuitive") that the partial derivative of $f$ with
+respect to either $x$ or $y$ just tells you how much perturbation in $f$ you get
+from either $x$ or $y$.
+
+## Gradients
+
+A **gradient** of a function is the vector of partial derivatives with respect
+to all the independent variables, denoted as
+
+\begin{equation}
+    \nabla f
+\end{equation}
+
+for instance, if
+
+\begin{equation}
+    f(x,y) = e^{2y}sin(x)
+\end{equation}
+
+then
+
+\begin{equation}
+    \nabla f(x,y) =
+    \left( \frac{\partial f}{\partial x}(x,y), \frac{\partial f}{\partial y}(x,y) \right) =
+    (e^{2y}\cos{x}, 2e^{2y}\sin{x})
+\end{equation}
+
+***N.B.*** $\nabla f$ points toward the greatest increase of the function, and
+$-\nabla f$ points toward the greatest decrease of the function.
+
+The number of dimensions in the vector is equal to the number of variables in
+the formula for $f$; in other words, the vector falls within the domain space of
+the function. For instance, the graph of the following function:
+
+\begin{equation}
+    f(x,y) = 4 + (x - 2)^2 + 2y^2
+\end{equation}
+
+when viewed in three dimenions with $z = f(x,y)$ looks like a valley with a
+minimum at $(2,0,4)$:
+
+\begin{figure}[h]
+    \includegraphics[scale=0.35]{ThreeDimensionalPlot}
+    \centering
+\end{figure}
+
+# Gradient Descents
+
+A gradient is a vector with a direction and a magnitude. To determine the next
+point along the loss function curve, the gradient descent algorithm adds some
+fraction of the gradient's magnitude to the starting point. This means we get
+diminishing steps.
+
+That's cool, reminds me of Proportional in PID. You halve the distance between
+your target and your value. But, like, the gradient is unknown, so your
+magnitude is as well, when you're adjusting, and that's the point of the steps.
+So how do you know what your Gradient Descent Algorithm (henceforth GDA) should
+use as a step?
+
+I guess that's the rub. Or is this something I would just know intuitively from
+linear algebra? You know a point, not actually a direction, so it's 50/50 which
+way to go on your next iteration.
 
 \end{markdown}
 
