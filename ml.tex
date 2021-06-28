@@ -2,7 +2,7 @@
 
 \title{Notes to Google's Machine Learning Crash Course}
 \author{Michael Sendker}
-\date{June 27, 2021}
+\date{Starting June 27, 2021}
 
 \begin{document}
 \begin{markdown}
@@ -113,7 +113,7 @@ and the reverse, $f$ with respect to $y$ holding $x$ fixed:
     \frac{\partial f}{\partial y}(x,y) = 2e^{2y}\sin{x}
 \end{equation}
 
-It does seem obvious ("intuitive") that the partial derivative of $f$ with
+It does seem obvious (``intuitive") that the partial derivative of $f$ with
 respect to either $x$ or $y$ just tells you how much perturbation in $f$ you get
 from either $x$ or $y$.
 
@@ -176,7 +176,7 @@ I guess that's the rub. Or is this something I would just know intuitively from
 linear algebra? You know a point, not actually a direction, so it's 50/50 which
 way to go on your next iteration.
 
-"The ideal learning rate in one-dimension is $\frac{1}{f(x)''}$.
+``The ideal learning rate in one-dimension is $\frac{1}{f(x)''}$.
 
 The ideal learing rate for 2 or more dimensions is is the inverse of the Hessian
 (matrix of second partial derivatives)."
@@ -189,13 +189,13 @@ What is a Hessian you ask?
     field. It describes the local curvature of a function of many variables. The
     Hessian matrix was developed in the 19th century by the German mathematician
     Ludwig Otto Hesse and later named after him. Hesse originally used the term
-    "functional determinants".
+    ``functional determinants".
 \end{definition}
 
 Okay, so that's just a matrix of second-order partial derivatives of a
 scalar-valued function or scalar field.
 
-I actually get what that is, sort of.
+I actually get what that is, sort of. I need to learn linalg.
 
 \end{markdown}
 
